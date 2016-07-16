@@ -1,0 +1,27 @@
+{
+  "name": "bit-eslint",
+  "version": "1.0.0",
+  "description": "eslint plugin for bit-loader",
+  "main": "index.js",
+  "dependencies": {
+    "eslint": "^3.1.0",
+    "bit-plugin-builder": "^1.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MiguelCastillo/bit-eslint.git"
+  },
+  "keywords": [
+    "eslint"
+  ],
+  "author": "Miguel Castillo <manchagnu@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MiguelCastillo/bit-eslint/issues"
+  },
+  "homepage": "https://github.com/MiguelCastillo/bit-eslint#readme"
+}
