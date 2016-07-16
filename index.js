@@ -9,11 +9,11 @@ var defaults = {
 };
 
 function factory(options) {
-  options = options || {};
+  var settings = options || {};
 
   var eslintVerify = eslint.linter;
-  var eslintCLI = new eslint.CLIEngine(options.eslint);
-  var formatter = eslintCLI.getFormatter("stylish");
+  var eslintCLI = new eslint.CLIEngine(settings.options);
+  var formatter = eslintCLI.getFormatter(settings.formatter);
 
   function transform(meta) {
     var config = eslintCLI.getConfigForFile(meta.path);
@@ -42,7 +42,7 @@ function factory(options) {
     .configure({
       transform: transform
     })
-    .configure(options)
+    .configure(settings)
     .build();
 }
 
