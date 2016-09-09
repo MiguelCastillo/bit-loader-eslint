@@ -15,7 +15,7 @@ function factory(options) {
   var eslintCLI = new eslint.CLIEngine(settings.options);
   var formatter = eslintCLI.getFormatter(settings.formatter);
 
-  function transform(meta) {
+  function pretransform(meta) {
     var config = eslintCLI.getConfigForFile(meta.path);
     var messages = eslintVerify.verify(meta.source, config);
 
@@ -39,8 +39,9 @@ function factory(options) {
 
   return PluginBuilder
     .create(defaults)
+    .withDefault("pretransform")
     .configure({
-      transform: transform
+      pretransform: pretransform
     })
     .configure(settings)
     .build();
