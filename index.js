@@ -11,13 +11,13 @@ var defaults = {
 function factory(options) {
   var settings = options || {};
 
-  var eslintVerify = eslint.linter;
   var eslintCLI = new eslint.CLIEngine(settings.options);
   var formatter = eslintCLI.getFormatter(settings.formatter);
 
   function pretransform(meta) {
-    var config = eslintCLI.getConfigForFile(meta.path);
-    var messages = eslintVerify.verify(meta.source, config);
+    // var config = eslintCLI.getConfigForFile(meta.path);
+    // var messages = eslint.linter.verify(meta.source, config);
+    var messages = eslintCLI.executeOnText(meta.source, meta.path).results[0].messages;
 
     if (!messages.length) {
       return;
