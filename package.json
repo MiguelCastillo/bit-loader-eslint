@@ -1,15 +1,13 @@
 {
   "name": "bit-eslint",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "eslint plugin for bit-loader",
   "main": "index.js",
   "dependencies": {
     "eslint": "^3.5.0",
     "bit-plugin-builder": "^1.2.0"
   },
-  "devDependencies": {
-    
-  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
