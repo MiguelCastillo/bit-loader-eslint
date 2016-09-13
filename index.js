@@ -39,7 +39,6 @@ function factory(options) {
 
   return PluginBuilder
     .create(defaults)
-    .withDefault("pretransform")
     .configure({
       pretransform: pretransform
     })
