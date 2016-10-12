@@ -1,7 +1,5 @@
 # bit-eslint
-eslint plugin for bit-loader
-
-This plugin facilitates linting your source files with [eslint](http://eslint.org).
+[eslint](http://eslint.org) plugin for linting you JavaScript assets in bit-bundler.
 
 ## Install
 
@@ -21,7 +19,9 @@ var eslintPlugin = require("bit-eslint");
 var bitbundler = new Bitbundler({
   loader: {
     plugins: [
-      eslintPlugin(),
+      eslintPlugin({
+        extensions: ["js", "jsx"]
+      }),
       jsPlugin()
     ]
   }
@@ -35,20 +35,15 @@ bitbundler.bundle([{
 
 ## Options
 
-You can specify options for bit-loader as well as the eslint formatter by passing in an object into the plugin.
-
-For example, you can specify the formatter by specifying the `formatter` string option:
+You can specify an eslint formatter:
 
 > Other formatters are available [here](http://eslint.org/docs/developer-guide/nodejs-api#getformatter)
 
 ``` javascript
 eslintPlugin({
-  formatter: "compact",
-  extensions: ["js", "jsx"]
+  formatter: "compact"
 });
 ```
-
-## ESLint options
 
 You can also provide [eslint](http://eslint.org) specific options.
 
