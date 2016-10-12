@@ -1,5 +1,5 @@
 # bit-eslint
-[eslint](http://eslint.org) plugin for bit-loader to lint you JavaScript assets.
+[eslint](http://eslint.org) plugin for bit-loader to lint your JavaScript assets.
 
 ## Install
 
