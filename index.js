@@ -1,4 +1,3 @@
-var PluginBuilder = require("bit-plugin-builder");
 var eslint = require("eslint");
 
 var defaults = {
@@ -8,13 +7,13 @@ var defaults = {
   }
 };
 
-function factory(options) {
+function buildPlugin(options, builder) {
   var settings = options || {};
 
   var eslintCLI = new eslint.CLIEngine(settings.options);
   var formatter = eslintCLI.getFormatter(settings.formatter);
 
-  function pretransform(meta) {
+  function pretransform(meta, context) {
     // var config = eslintCLI.getConfigForFile(meta.path);
     // var messages = eslint.linter.verify(meta.source, config);
     var messages = eslintCLI.executeOnText(meta.source, meta.path).results[0].messages;
@@ -29,7 +28,7 @@ function factory(options) {
     }];
 
     if (results.length) {
-      console.log(formatter(results));
+      context.getLogger("eslint").warn(formatter(results));
     }
 
     if (eslint.CLIEngine.getErrorResults(results).length) {
@@ -37,13 +36,16 @@ function factory(options) {
     }
   }
 
-  return PluginBuilder
-    .create(defaults)
+  return builder
+    .configure(defaults)
     .configure({
       pretransform: pretransform
     })
-    .configure(settings)
-    .build();
+    .configure(settings);
 }
 
-module.exports = factory;
+module.exports = function factory(options) {
+  return function(builder) {
+    return buildPlugin(options, builder);
+  };
+};
