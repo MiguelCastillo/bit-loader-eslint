@@ -35,6 +35,18 @@ bitbundler.bundle([{
 
 ## Options
 
+### `exitOnError`
+
+Flag to exit as soon as eslint reports an error.  Defaults to false.
+
+``` javascript
+eslintPlugin({
+  exitOnError: true
+});
+```
+
+### `formatter`
+
 You can specify an eslint formatter:
 
 > Other formatters are available [here](http://eslint.org/docs/developer-guide/nodejs-api#getformatter)
@@ -44,6 +56,8 @@ eslintPlugin({
   formatter: "compact"
 });
 ```
+
+### `options`
 
 You can also provide [eslint](http://eslint.org) specific options.
 
