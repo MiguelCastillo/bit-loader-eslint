@@ -31,8 +31,8 @@ function buildPlugin(options, builder) {
       context.getLogger("eslint").warn(formatter(results));
     }
 
-    if (eslint.CLIEngine.getErrorResults(results).length) {
-      return Promise.reject("Linting errors");
+    if (settings.exitOnError === true && eslint.CLIEngine.getErrorResults(results).length) {
+      return Promise.reject("linting errors");
     }
   }
 
