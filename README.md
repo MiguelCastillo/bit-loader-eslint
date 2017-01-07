@@ -1,10 +1,10 @@
-# bit-eslint
+# bit-loader-eslint
 [eslint](http://eslint.org) plugin for bit-loader to lint your JavaScript assets.
 
 ## Install
 
 ```
-$ npm install --save bit-eslint
+$ npm install --save bit-loader-eslint
 ```
 
 ## bit-bundler
@@ -14,7 +14,7 @@ Sample configuration for bit-bundler
 ``` javascript
 var Bitbundler = require("bit-bundler");
 var jsPlugin = require("bit-loader-js");
-var eslintPlugin = require("bit-eslint");
+var eslintPlugin = require("bit-loader-eslint");
 
 var bitbundler = new Bitbundler({
   loader: {
