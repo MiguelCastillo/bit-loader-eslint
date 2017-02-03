@@ -9,6 +9,7 @@ var defaults = {
 
 function buildPlugin(options, builder) {
   var settings = options || {};
+  eslint = settings.eslint || eslint;
 
   var eslintCLI = new eslint.CLIEngine(settings.options);
   var formatter = eslintCLI.getFormatter(settings.formatter);
@@ -16,7 +17,8 @@ function buildPlugin(options, builder) {
   function pretransform(meta, context) {
     // var config = eslintCLI.getConfigForFile(meta.path);
     // var messages = eslint.linter.verify(meta.source, config);
-    var messages = eslintCLI.executeOnText(meta.source, meta.path).results[0].messages;
+    var lintResults = eslintCLI.executeOnText(meta.source, meta.path).results;
+    var messages = lintResults.length ? eslintCLI.executeOnText(meta.source, meta.path).results[0].messages : [];
 
     if (!messages.length) {
       return;
