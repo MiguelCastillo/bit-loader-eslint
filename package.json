@@ -4,9 +4,11 @@
   "description": "eslint plugin for bit-loader",
   "main": "index.js",
   "dependencies": {
-    "eslint": "^3.5.0"
+    "eslint": "^3.14.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
