@@ -15,25 +15,16 @@ function buildPlugin(options, builder) {
   var formatter = eslintCLI.getFormatter(settings.formatter);
 
   function pretransform(meta, context) {
-    // var config = eslintCLI.getConfigForFile(meta.path);
-    // var messages = eslint.linter.verify(meta.source, config);
     var lintResults = eslintCLI.executeOnText(meta.source, meta.path).results;
-    var messages = lintResults.length ? eslintCLI.executeOnText(meta.source, meta.path).results[0].messages : [];
+    var hasMessages = lintResults.length && lintResults[0].messages.length;
 
-    if (!messages.length) {
+    if (!hasMessages) {
       return;
     }
 
-    var results = [{
-      filePath: meta.path,
-      messages: messages
-    }];
+    context.getLogger("eslint").warn(formatter(lintResults));
 
-    if (results.length) {
-      context.getLogger("eslint").warn(formatter(results));
-    }
-
-    if (settings.exitOnError === true && eslint.CLIEngine.getErrorResults(results).length) {
+    if (settings.exitOnError && eslint.CLIEngine.getErrorResults(lintResults).length) {
       return Promise.reject("linting errors");
     }
   }
