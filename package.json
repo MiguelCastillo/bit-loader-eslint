@@ -4,7 +4,7 @@
   "description": "eslint plugin for bit-loader",
   "main": "index.js",
   "dependencies": {
-    "eslint": "^3.14.1"
+    "eslint": "~3.14.1"
   },
   "devDependencies": {},
   "scripts": {
