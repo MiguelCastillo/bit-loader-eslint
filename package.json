@@ -1,14 +1,13 @@
 {
   "name": "bit-loader-eslint",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "eslint plugin for bit-loader",
   "main": "index.js",
   "dependencies": {
     "eslint": "~4.12.1"
   },
   "devDependencies": {},
-  "scripts": {
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MiguelCastillo/bit-loader-eslint.git"
