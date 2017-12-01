@@ -1,6 +1,7 @@
 # bit-loader-eslint
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/MiguelCastillo/bit-loader-eslint.svg)](https://greenkeeper.io/)
+
 [eslint](http://eslint.org) plugin for bit-loader to lint your JavaScript assets.
 
 ## Install
