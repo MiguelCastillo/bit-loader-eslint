@@ -14,7 +14,7 @@ function buildPlugin(options, builder) {
   var eslintCLI = new eslint.CLIEngine(settings.options);
   var formatter = eslintCLI.getFormatter(settings.formatter);
 
-  function pretransform(meta, context) {
+  function postfetch(meta, context) {
     var lintResults = eslintCLI.executeOnText(meta.source, meta.path).results;
     var hasMessages = lintResults.length && lintResults[0].messages.length;
 
@@ -32,7 +32,7 @@ function buildPlugin(options, builder) {
   return builder
     .configure(defaults)
     .configure({
-      pretransform: pretransform
+      postfetch: postfetch
     })
     .configure(settings);
 }
