@@ -1,5 +1,5 @@
 {
-  "name": "bit-loader-eslint",
+  "name": "@bit/loader-eslint",
   "version": "1.3.0",
   "description": "eslint plugin for bit-loader",
   "main": "index.js",
