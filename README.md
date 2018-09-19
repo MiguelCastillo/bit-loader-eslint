@@ -7,7 +7,7 @@
 ## Install
 
 ```
-$ npm install --save bit-loader-eslint
+$ npm install --save @bit/loader-eslint
 ```
 
 ## bit-bundler
@@ -15,9 +15,9 @@ $ npm install --save bit-loader-eslint
 Sample configuration for bit-bundler
 
 ``` javascript
-var Bitbundler = require("bit-bundler");
-var jsPlugin = require("bit-loader-js");
-var eslintPlugin = require("bit-loader-eslint");
+var Bitbundler = require("@bit/bundler");
+var jsPlugin = require("@bit/loader-js");
+var eslintPlugin = require("@bit/loader-eslint");
 
 var bitbundler = new Bitbundler({
   loader: {
